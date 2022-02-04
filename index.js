@@ -9,9 +9,18 @@ function createLetter(letter) {
     let audio = new Audio(alphabetjson[letter]);
     let letterdiv = document.createElement("div");
     letterdiv.classList.add("letter");
+    letterdiv.id = "letter" + letter;
     letterdiv.innerText = letter;
     letterdiv.onclick = function() {
         audio.play();
     }
     return letterdiv;
 }
+
+document.addEventListener("keydown", function(e) {
+    if (alphabetjson[e.key.toUpperCase()]) {
+        let audio = new Audio(alphabetjson[e.key.toUpperCase()]);
+        console.log(alphabetjson[e.key.toUpperCase()]);
+        audio.play();
+    }
+});
