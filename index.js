@@ -20,7 +20,6 @@ function createLetter(letter) {
 document.addEventListener("keydown", function(e) {
     if (alphabetjson[e.key.toUpperCase()]) {
         let audio = new Audio(alphabetjson[e.key.toUpperCase()]);
-        console.log(alphabetjson[e.key.toUpperCase()]);
         audio.play();
     }
 });
