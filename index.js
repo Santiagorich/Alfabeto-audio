@@ -30,7 +30,7 @@ document.addEventListener("keydown", function(e) {
 });
 
 async function speech(text) {
-    fetch("http://localhost:3000/api/texttospeech?text=" + text).then(function(response) {
+    fetch("https://text-to-speech-santiagorich.vercel.app/serverless.js?text=" + text).then(function(response) {
         response.text().then(function(url) {
             console.log(url)
             let audio = new Audio(url);
