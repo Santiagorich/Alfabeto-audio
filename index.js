@@ -63,12 +63,20 @@ async function speech(text) {
 }
 
 textarea.addEventListener("keyup", function(e) {
-    clearTimeout(currenttimeout);
-    currenttimeout = setTimeout(() => {
+    if (e.key === "Enter") {
         clearTimeout(currenttimeout);
-
         if (this.value.length > 0) {
             speech(this.value);
         }
-    }, 600);
+    } else {
+        currenttimeout = setTimeout(() => {
+            clearTimeout(currenttimeout);
+
+            if (this.value.length > 0) {
+                speech(this.value);
+            }
+        }, 600);
+    }
+
+
 });
